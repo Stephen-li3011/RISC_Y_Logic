@@ -6,9 +6,11 @@ public class TimeSlot {
     private LocalTime startTime;
     private LocalTime endTime;
 
-    public TimeSlot(LocalTime startTime, LocalTime endTime) throws IllegalAccessException {
+    public TimeSlot(LocalTime startTime, LocalTime endTime)
+            throws IllegalAccessException {
         if (endTime.isBefore(startTime)) {
-            throw new IllegalAccessException("End time must be after start time");
+            throw new IllegalAccessException(
+                    "End time must be after start time");
         }
         this.startTime = startTime;
         this.endTime = endTime;

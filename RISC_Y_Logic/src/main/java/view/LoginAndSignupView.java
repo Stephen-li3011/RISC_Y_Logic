@@ -10,20 +10,40 @@ import use_case.login.LoginInteractor;
 import use_case.signup.SignupInteractor;
 import data_access.InMemoryUserRepository;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import javax.swing.BorderFactory;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Dimension;
+import java.awt.Cursor;
+import java.awt.BorderLayout;
 
 public class LoginAndSignupView {
-    private final InMemoryUserRepository userRepository = new InMemoryUserRepository();
-    private final LoginViewModel loginViewModel = new LoginViewModel();
-    private final SignupViewModel signupViewModel = new SignupViewModel();
-    private final LoginPresenter loginPresenter = new LoginPresenter(loginViewModel);
-    private final SignupPresenter signupPresenter = new SignupPresenter(signupViewModel);
-    private final LoginInteractor loginInteractor = new LoginInteractor(userRepository, loginPresenter);
-    private final SignupInteractor signupInteractor = new SignupInteractor(userRepository, signupPresenter);
-    private final LoginController loginController = new LoginController(loginInteractor);
-    private final SignupController signupController = new SignupController(signupInteractor);
+    private final InMemoryUserRepository userRepository
+            = new InMemoryUserRepository();
 
+    private final LoginViewModel loginViewModel = new LoginViewModel();
+
+    private final SignupViewModel signupViewModel = new SignupViewModel();
+    private final LoginPresenter loginPresenter
+            = new LoginPresenter(loginViewModel);
+    private final SignupPresenter signupPresenter
+            = new SignupPresenter(signupViewModel);
+    private final LoginInteractor loginInteractor
+            = new LoginInteractor(userRepository, loginPresenter);
+    private final SignupInteractor signupInteractor
+            = new SignupInteractor(userRepository, signupPresenter);
+    private final LoginController loginController
+            = new LoginController(loginInteractor);
+    private final SignupController signupController
+            = new SignupController(signupInteractor);
     JLabel loginLabel = new JLabel("Login");
     JLabel username = new JLabel("Username:");
     JLabel password = new JLabel("Password:");
@@ -33,6 +53,7 @@ public class LoginAndSignupView {
     JLabel signUpLabel = new JLabel("Signup");
     JLabel newUsername = new JLabel("New Username:");
     JLabel newPassword = new JLabel("New Password:");
+
     JTextField newUsernameField = new JTextField();
     JPasswordField newPasswordField = new JPasswordField();
     JButton signUpButton = new JButton("Signup");
@@ -63,7 +84,8 @@ public class LoginAndSignupView {
         usernameField.setFont(new Font("Times New Roman", Font.PLAIN, 15));
         usernameField.setBounds(100, 100, 150, 30);
         usernameField.setBackground(Color.WHITE);
-        usernameField.setBorder(BorderFactory.createLineBorder(new Color(180, 180, 180), 1));
+        usernameField.setBorder(BorderFactory.createLineBorder
+                (new Color(180, 180, 180), 1));
 
         passwordField.setFont(new Font("Times New Roman", Font.PLAIN, 15));
         passwordField.setBounds(100, 150, 150, 30);

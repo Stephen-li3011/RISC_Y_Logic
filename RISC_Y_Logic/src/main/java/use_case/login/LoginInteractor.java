@@ -7,7 +7,8 @@ public class LoginInteractor implements LoginInputBoundary {
     private final LoginDataAccessInterface userRepository;
     private final LoginOutputBoundary loginOutputBoundary;
 
-    public LoginInteractor(InMemoryUserRepository userRepository, LoginOutputBoundary loginOutputBoundary) {
+    public LoginInteractor(InMemoryUserRepository userRepository,
+                           LoginOutputBoundary loginOutputBoundary) {
         this.userRepository = userRepository;
         this.loginOutputBoundary = loginOutputBoundary;
     }
@@ -15,8 +16,10 @@ public class LoginInteractor implements LoginInputBoundary {
     @Override
     public void execute (LoginInputData loginInputData) {
         User user = userRepository.findByName(loginInputData.getUsername());
-        if (user != null && user.getPassword().equals(loginInputData.getPassword())) {
-            loginOutputBoundary.prepareMessage(new LoginOutputData(user.getUsername(), false));
+        if (user != null && user.getPassword()
+                .equals(loginInputData.getPassword())) {
+            loginOutputBoundary.prepareMessage(new LoginOutputData(
+                    user.getUsername(), false));
         }
         else {
             loginOutputBoundary.prepareMessage(new LoginOutputData(null, true));

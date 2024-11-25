@@ -15,11 +15,14 @@ public class SignupInteractor implements SignupInputBoundary{
     public void execute(SignupInputData signupInputData) {
         String username = signupInputData.getUsername();
         if (userRepository.existByName(signupInputData.getUsername())) {
-            signupOutputBoundary.prepareMessage(new SignupOutputData(username, true));
-            userRepository.save(new User(username, signupInputData.getPassword()));
+            signupOutputBoundary.prepareMessage(
+                    new SignupOutputData(username, true));
+            userRepository.save(new User(
+                    username, signupInputData.getPassword()));
         }
         else {
-            signupOutputBoundary.prepareMessage(new SignupOutputData(username, false));
+            signupOutputBoundary.prepareMessage(
+                    new SignupOutputData(username, false));
         }
     }
 }
