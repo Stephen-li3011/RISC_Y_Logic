@@ -52,10 +52,6 @@ public class EventSchedule {
             result += "\n  Description: " + description;
         }
 
-        if (tags != null) {
-            result += "\n  Tags: " + tags;
-        }
-
         result += "\n  Source: " + source;
 
         return result;
