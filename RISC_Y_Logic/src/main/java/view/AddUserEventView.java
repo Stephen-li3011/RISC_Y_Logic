@@ -33,10 +33,6 @@ public class AddUserEventView {
                 new JLabel("Event Time: "), eventTimeInputField);
         final JPanel eventDescriptionInfo = new LabelTextPanel(
                 new JLabel("Event Description: "), eventDescriptionInputField);
-        final JPanel tags = new LabelListPanel(
-                new JLabel("Tags: "), tagsInputField);
-        tagsInputField.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        tagsInputField.setListData(new String[]{"tag1", "tag2", "tag3"});
 
         final JPanel buttons = new JPanel();
         buttons.add(addEvent);
@@ -64,7 +60,6 @@ public class AddUserEventView {
         view.add(eventDateInfo);
         view.add(eventTimeInfo);
         view.add(eventDescriptionInfo);
-        view.add(tags);
         view.add(buttons);
 
         frame.add(view);

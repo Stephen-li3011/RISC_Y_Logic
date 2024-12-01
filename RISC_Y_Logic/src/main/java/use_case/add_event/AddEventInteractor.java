@@ -5,18 +5,17 @@ import entity.EventFactory;
 import entity.TimeSlot;
 import entity.TimeSlotFactory;
 import interface_adapter.StringFormatChecker;
-import interface_adapter.add_event.AddEventPresenter;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 public class AddEventInteractor {
     private final AddEventScheduleDataAccessInterface eventDataAccessObject;
-    private final AddEventPresenter addEventPresenter;
+    private final AddEventOutputBoundary addEventPresenter;
     private final EventFactory eventFactory;
 
     public AddEventInteractor(AddEventScheduleDataAccessInterface eventDataAccessObject,
-                              AddEventPresenter newEventPresenter,
+                              AddEventOutputBoundary newEventPresenter,
                               EventFactory eventFactory) {
         this.eventDataAccessObject = eventDataAccessObject;
         this.addEventPresenter = newEventPresenter;
@@ -46,7 +45,8 @@ public class AddEventInteractor {
 
             final EventSchedule newEvent = eventFactory.createEvent(name, checkedDate, timeslot, description, tags, source);
             eventDataAccessObject.saveEventSchedule(newEvent, checkedDate);
-            addEventPresenter.prepareSuccessView("Event added successfully.");
+            AddEventOutputData outputData = new AddEventOutputData(name, false);
+            addEventPresenter.prepareSuccessView(outputData);
         }
     }
 }
