@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -25,27 +26,26 @@ public class AddCourseScheduleInteractor implements AddCourseScheduleInputBounda
             DayOfWeek dayOfWeek = DayOfWeek.valueOf(inputData.getCourseDate().toUpperCase());
             LocalTime startTime = inputData.getStartTime();
             LocalTime endTime = inputData.getEndTime();
-
             TimeSlot timeSlot = new TimeSlot(startTime, endTime);
             List<LocalDate> localDates = mapDayToDates(dayOfWeek, inputData.getSemester());
-
-            CourseSchedule schedule = new CourseSchedule(inputData.getCourseName(), new TreeMap());
+            CourseSchedule schedule = new CourseSchedule(
+                    inputData.getCourseName(), new HashMap<>());
             for (LocalDate date : localDates) {
                 schedule.getInstanceDateAndTimeSlot().putIfAbsent(date, new ArrayList<>());
                 schedule.getInstanceDateAndTimeSlot().get(date).add(timeSlot);
             }
-
             addCourseScheduleDataAccessInterface.saveCourseSchedule(schedule, localDates);
-            addCourseScheduleOutputBoundary.present(new AddCourseScheduleOutputData("Course schedule added successfully"));
+            addCourseScheduleOutputBoundary.present(
+                    new AddCourseScheduleOutputData("Course schedule added successfully"));
         } catch (Exception e) {
-            addCourseScheduleOutputBoundary.present(new AddCourseScheduleOutputData("Error: " + e.getMessage()));
+            addCourseScheduleOutputBoundary.present(
+                    new AddCourseScheduleOutputData("Error: " + e.getMessage()));
         }
     }
 
     private List<LocalDate> mapDayToDates(DayOfWeek dayOfWeek, String semester) {
         LocalDate startDate;
         LocalDate endDate;
-
         switch (semester) {
             case "Fall":
                 startDate = LocalDate.of(LocalDate.now().getYear(), 9, 1);
@@ -62,7 +62,6 @@ public class AddCourseScheduleInteractor implements AddCourseScheduleInputBounda
             default:
                 throw new IllegalArgumentException("Invalid semester");
         }
-
         List<LocalDate> dates = new ArrayList<>();
         while (!startDate.isAfter(endDate)) {
             if (startDate.getDayOfWeek() == dayOfWeek) {
