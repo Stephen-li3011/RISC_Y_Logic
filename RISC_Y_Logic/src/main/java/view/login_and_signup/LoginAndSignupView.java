@@ -1,4 +1,4 @@
-package view;
+package view.login_and_signup;
 
 import interface_adapter.login.LoginController;
 import interface_adapter.login.LoginViewModel;
@@ -9,6 +9,7 @@ import interface_adapter.signup.SignupViewModel;
 import use_case.login.LoginInteractor;
 import use_case.signup.SignupInteractor;
 import data_access.InMemoryUserRepository;
+import view.main_menu.MainMenuView;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

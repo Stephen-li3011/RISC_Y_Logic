@@ -1,4 +1,4 @@
-package view;
+package view.calendar;
 
 import entity.CalendarDay;
 import entity.CourseSchedule;
@@ -12,6 +12,9 @@ import use_case.add_course_schedule.AddCourseScheduleDataAccessInterface;
 import use_case.add_event.AddEventScheduleDataAccessInterface;
 import use_case.calendar.CalendarInputBoundary;
 import use_case.calendar.CalendarInputData;
+import view.AddUserEventView;
+import view.StyleButton;
+import view.add_course_schedule.AddCourseScheduleView;
 
 import javax.swing.*;
 import java.awt.*;

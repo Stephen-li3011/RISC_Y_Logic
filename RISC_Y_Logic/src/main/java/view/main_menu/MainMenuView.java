@@ -1,4 +1,4 @@
-package view;
+package view.main_menu;
 
 import data_access.InMemoryScheduleRepository;
 import entity.EventFactory;

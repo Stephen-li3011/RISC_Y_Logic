@@ -1,4 +1,4 @@
-package view;
+package view.calendar;
 
 import javax.swing.*;
 import java.awt.*;

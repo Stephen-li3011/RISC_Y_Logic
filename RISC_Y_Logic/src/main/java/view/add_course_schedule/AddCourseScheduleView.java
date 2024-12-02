@@ -1,4 +1,4 @@
-package view;
+package view.add_course_schedule;
 
 import interface_adapter.add_course_schedule.AddCourseScheduleController;
 import use_case.add_course_schedule.AddCourseScheduleDataAccessInterface;

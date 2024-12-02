@@ -7,7 +7,7 @@ import interface_adapter.calendar.CalendarPresenter;
 import use_case.add_course_schedule.AddCourseScheduleDataAccessInterface;
 import use_case.add_event.AddEventScheduleDataAccessInterface;
 import use_case.calendar.CalendarInputBoundary;
-import view.CalendarView;
+import view.calendar.CalendarView;
 
 public class MainMenuCalendarController{
 
