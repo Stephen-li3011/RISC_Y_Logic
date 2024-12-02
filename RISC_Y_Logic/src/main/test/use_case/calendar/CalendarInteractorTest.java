@@ -1,10 +1,12 @@
 package use_case.calendar;
 
+import entity.CalendarDay;
 import entity.CourseSchedule;
 import interface_adapter.calendar.CalendarPresenter;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +18,7 @@ public class CalendarInteractorTest {
     @Test
     public void CalendarInteractorTest() {
 
-        CalendarInputData calendarInputData = new CalendarInputData(2024, 11);
+        CalendarInputData calendarInputData = new CalendarInputData(2024, 10);
 
         CalendarOutputBoundary calendarOutputBoundary = new CalendarPresenter();
 
@@ -29,6 +31,6 @@ public class CalendarInteractorTest {
         assertEquals(courseScheduleMap, new HashMap<LocalDate, List<CourseSchedule>>());
 
         assertEquals(2024, calendarInputData.getYear());
-        assertEquals(11, calendarInputData.getMonth());
+        assertEquals(10, calendarInputData.getMonth());
     }
 }
