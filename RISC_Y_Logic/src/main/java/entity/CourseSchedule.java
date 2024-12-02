@@ -22,4 +22,11 @@ public class CourseSchedule implements ScheduleInterface {
     public Map<LocalDate, List<TimeSlot>> getInstanceDateAndTimeSlot() {
         return schedule;
     }
+
+    public String toString(LocalDate date) {
+        StringBuilder result = new StringBuilder();
+        result.append("Course Name: ").append(courseName).append("\n  Course Time:");
+        schedule.get(date).forEach(timeSlot -> result.append("    ").append(timeSlot.toString()).append("\n"));
+        return result.toString();
+    }
 }

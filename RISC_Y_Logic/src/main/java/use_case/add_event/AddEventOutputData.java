@@ -1,17 +1,15 @@
 package use_case.add_event;
 
-import entity.Event;
-
 public class AddEventOutputData {
-    private final Event newEvent;
+    private final String eventName;
     private final boolean useCaseFailed;
 
-    public AddEventOutputData(Event newEvent, boolean useCaseFailed) {
-        this.newEvent = newEvent;
+    public AddEventOutputData(String eventName, boolean useCaseFailed) {
+        this.eventName = eventName;
         this.useCaseFailed = useCaseFailed;
     }
 
-    public Event getNewEvent() {
-        return newEvent;
+    public String getEventName() {
+        return eventName;
     }
 }

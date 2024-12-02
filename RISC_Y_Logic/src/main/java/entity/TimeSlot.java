@@ -3,8 +3,8 @@ package entity;
 import java.time.LocalTime;
 
 public class TimeSlot {
-    private LocalTime startTime;
-    private LocalTime endTime;
+    private final LocalTime startTime;
+    private final LocalTime endTime;
 
     public TimeSlot(LocalTime startTime, LocalTime endTime)
             throws IllegalAccessException {
@@ -22,5 +22,9 @@ public class TimeSlot {
 
     public LocalTime getEndTime() {
         return endTime;
+    }
+
+    public String toString() {
+        return startTime + "~" + endTime;
     }
 }
