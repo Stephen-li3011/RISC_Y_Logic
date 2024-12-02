@@ -1,6 +1,6 @@
 # RISC-Y-Logic
 
-## Table of Contents
+# Table of Contents
 - [Developers](#developers)
 - [Summary](#summary)
 - [Features](#features)
@@ -10,7 +10,7 @@
 - [Feedback](#feedback)
 - [Contributions](#contributions)
 
-## Developers
+# Developers
 
 -  #### Group #232
    - #### Ji Suh Choi
@@ -18,7 +18,7 @@
    - #### Yiming Li
    - #### Yuelin Jiang
 
-## Summary
+# Summary
 
 #### What
 
