@@ -1,6 +1,8 @@
-package view;
+package view.add_user_event;
 
 import interface_adapter.add_event.AddUserEventController;
+import view.LabelTextPanel;
+import view.PlaceholderTextField;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

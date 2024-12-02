@@ -1,4 +1,6 @@
-package view;
+package view.recommendation;
+
+import view.LabelTextPanel;
 
 import java.awt.Component;
 

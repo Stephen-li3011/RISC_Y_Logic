@@ -1,4 +1,4 @@
-package view;
+package view.recommendation;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
